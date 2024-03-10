@@ -35,7 +35,7 @@ function createToDoItems() {
     const toDoItem = `<div class = "to-do-item" onclick = "completedToDoitems(this)"> <img src="./images/unchecked.png" class = "icons"> <div class = 'to-do-item-text'>${toDoInput.value}</div> </div> <div><img src = "./images/edit.png" class = "icons" onclick = "editToDoItems(this)"> <img src = "./images/delete.png" class = "icons" onclick = "deleteToDoItems(this)"></div>`
     li.innerHTML = toDoItem
     ul.appendChild(li)
-    const localStorageItem = {item : toDoInput.value.trim(),status : false}
+    const localStorageItem = {item : toDoInput.value,status : false}
     toDoData.push(localStorageItem)
     localStorage.setItem("to-do-list",JSON.stringify(toDoData))
     toDoInput.value = ""
@@ -44,7 +44,7 @@ function createToDoItems() {
 
 function completedToDoitems(e) {
     toDoData.forEach((element) => {
-        if(element.item == e.innerText.trim()) {
+        if(element.item == e.innerText) {
             if(e.style.textDecoration == "") {
                 e.style.textDecoration = "line-through"
                 e.firstElementChild.setAttribute("src","./images/checked.png")
@@ -74,7 +74,7 @@ function editToDoItems(e) {
 
 function updateToDoItems() {
     toDoData.forEach((element) => {
-        if(element.item == elementToEdit.innerText.trim()) {
+        if(element.item == elementToEdit.innerText) {
             elementToEdit.innerText = toDoInput.value
             addTask.setAttribute("src","./images/plus.png")
             addTask.setAttribute("style","padding : 10px")
@@ -88,9 +88,8 @@ function updateToDoItems() {
 }
 
 function deleteToDoItems(e) {
-    console.log(e.parentElement.parentElement.innerText.trim())
     for (let i = 0; i < toDoData.length; i++) {
-        if(toDoData[i].item == e.parentElement.parentElement.innerText.trim()) {
+        if(toDoData[i].item.trim() == e.parentElement.parentElement.innerText.trim()) {
             toDoData.splice(i,1)
         }
     }
