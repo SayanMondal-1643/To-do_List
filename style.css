@@ -1,0 +1,150 @@
+*{
+    margin: 0;
+    padding: 0;
+    font-family: "poppins",sans-serif;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: #a0c4d6; 
+    
+}
+
+.container{
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.to-do-header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 4vh 0px;
+}
+
+.to-do-body{
+    display: flex;
+    justify-content: center;
+}
+
+.to-do-text{
+    width: 90vw;
+    background-color:#edeef0;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#to-do-input{
+    width: 85%;
+    background: none;
+    outline: none;
+    border: none;
+    margin : 0px 20px;
+    font-size: 20px;
+}
+
+.to-do-text img{
+    background-color: limegreen;
+    border-radius: 50%;
+    padding: 10px;
+    cursor: pointer;
+}
+.to-do-text img:hover{
+    background-color: rgb(45, 177, 45);
+    
+}
+
+ul{
+    width: 90vw;
+}
+
+ li{
+    list-style: none;
+    background-color: #edeef0;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    font-size: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    animation: new-item-animation 0.3s forwards;
+    
+}
+
+.to-do-item-text{
+    width: 50vw;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    white-space: pre;
+}
+
+@keyframes new-item-animation {
+    from{
+        transform: translateY(-400px);
+        opacity: 0;
+    }
+    to{
+        transform: translateY(0px);
+        opacity: 1;
+    }
+}
+
+h5{
+    text-align: center;
+    margin: 20px;
+    color: rgb(1, 98, 1);
+}
+
+.icons{
+    height: 50px;
+    width: 50px;
+    padding: 10px;
+    cursor:pointer;
+}
+
+
+.align-items{
+    display:flex;
+    align-items: center;
+}
+.to-do-item{
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.fade-out-animation{
+    animation: fadeOut 3s forwards ;
+}
+@keyframes fadeOut {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+    }
+}
+
+.deleted-item-animation{
+    animation: deletedItem 1s cubic-bezier(0.55, -0.04, 0.91, 0.94) forwards;
+    transform-origin: 0% 100%;
+}
+@keyframes deletedItem {
+    0%{
+        opacity: 1;
+        transform: rotateZ(0deg);
+    }
+    100%{
+        opacity : 0;
+        transform: translateY(600px) rotateZ(90deg);
+    }
+}
+
+
+
