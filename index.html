@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaskMate</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="to-do-header">
+            <h2>To-do list</h2>
+            <img src="./images/ToDoList.gif" alt="to-do-list" height="55px">
+        </div>
+        <div class="to-do-body">
+            <div class="to-do-text">
+                <input type="text" placeholder="Write your task" id="to-do-input">
+                <img src="./images/plus.png" alt="add-icon" id="add-task" height="55px" onclick = "createToDoItems()">
+            </div>
+        </div>
+        <h5 id="alert-message"></h5>
+        <ul id="ul">
+        </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
